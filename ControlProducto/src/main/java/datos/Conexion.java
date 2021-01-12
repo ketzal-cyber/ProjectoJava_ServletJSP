@@ -9,7 +9,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Conexion {
     
-    private static final String JDBC_URL = "jdbc:mysql://192.168.0.11:3306/tienda?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://192.168.0.14:3306/tienda?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "agentx";
     private static final String JDBC_PASSWORD = "x.A18dic";
     

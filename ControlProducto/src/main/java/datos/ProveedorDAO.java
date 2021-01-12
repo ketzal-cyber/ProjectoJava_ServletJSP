@@ -23,7 +23,8 @@ public class ProveedorDAO implements Operaciones {
     //Metodo para  listar todos los proveedores
     @Override
     public List<Object> listar() {
-
+        System.out.println(" Metodo listar");
+        
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -41,9 +42,12 @@ public class ProveedorDAO implements Operaciones {
                 String telefono = rs.getString("telefono");
                 int credito = rs.getInt("credito");
                 String email = rs.getString("email");
+                
+                System.out.println(" Lista "+ clave + nombre + telefono + credito + email);
 
                 proveedor = new Proveedor(idProveedor, clave, nombre, telefono, credito, email);
                 provedores.add(proveedor);
+                System.out.println(" listado de proveedores "+ provedores);
             }
 
         } catch (SQLException ex) {
@@ -70,7 +74,7 @@ public class ProveedorDAO implements Operaciones {
             stmt.setInt(1, proveedor.getIdProveedor());
             rs = stmt.executeQuery();
             rs.absolute(1); //nos posisionamos en el primer registro
-            
+
             String clave = rs.getString("clave");
             String nombre = rs.getString("nombre");
             String telefono = rs.getString("telefono");
@@ -105,9 +109,9 @@ public class ProveedorDAO implements Operaciones {
             stmt.setString(3, proveedor.getTelefono());
             stmt.setInt(4, proveedor.getCredito());
             stmt.setString(5, proveedor.getEmail());
-            
+
             rows = stmt.executeUpdate();
-            
+
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
@@ -119,12 +123,54 @@ public class ProveedorDAO implements Operaciones {
 
     @Override
     public int actualizar(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        Proveedor proveedor = (Proveedor) object;
+        // idproveedor, clave, nombre, telefono, credito, email
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt.setString(1, proveedor.getClave());
+            stmt.setString(2, proveedor.getNombre());
+            stmt.setString(3, proveedor.getTelefono());
+            stmt.setInt(4, proveedor.getCredito());
+            stmt.setString(5, proveedor.getEmail());
+            stmt.setInt(6, proveedor.getIdProveedor());
+
+            rows = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return rows;
     }
 
     @Override
     public int eliminar(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         Connection conn = null;
+        PreparedStatement stmt = null;
+        int rows = 0;
+        Proveedor proveedor = (Proveedor) object;
+        // idproveedor, clave, nombre, telefono, credito, email
+        try {
+            conn = Conexion.getConnection();
+            stmt = conn.prepareStatement(SQL_DELETE);
+
+            stmt.setInt(1, proveedor.getIdProveedor());
+
+            rows = stmt.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        return rows;
     }
 
 }
