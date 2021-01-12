@@ -1,7 +1,0 @@
-web\ServletControlador.class
-datos\ProveedorDAO.class
-dominio\Producto.class
-dominio\Proveedor.class
-general\IProveedor.class
-general\Operaciones.class
-datos\Conexion.class
