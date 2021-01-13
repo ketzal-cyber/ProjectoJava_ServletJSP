@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,11 +18,8 @@
         <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp" />
         
         
-        <ul>
-            <c:forEach var="provedor" items="${proveedor}">
-                <li>${provedor.idProveedor} ${provedor.clave} ${provedor.nombre} ${provedor.credito}</li>
-            </c:forEach>
-        </ul>
+       <!--Listado  -->
+       <jsp:include page="WEB-INF/paginas/proveedor/listadoProveedor.jsp" />
         
         <!-- footer con una accion jsp include-->
         <jsp:include page="WEB-INF/paginas/comunes/footer.jsp" />

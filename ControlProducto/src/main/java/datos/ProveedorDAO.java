@@ -5,8 +5,6 @@ import general.Operaciones;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ProveedorDAO implements Operaciones {
 
@@ -23,7 +21,6 @@ public class ProveedorDAO implements Operaciones {
     //Metodo para  listar todos los proveedores
     @Override
     public List<Object> listar() {
-        System.out.println(" Metodo listar");
         
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -42,12 +39,9 @@ public class ProveedorDAO implements Operaciones {
                 String telefono = rs.getString("telefono");
                 int credito = rs.getInt("credito");
                 String email = rs.getString("email");
-                
-                System.out.println(" Lista "+ clave + nombre + telefono + credito + email);
 
                 proveedor = new Proveedor(idProveedor, clave, nombre, telefono, credito, email);
                 provedores.add(proveedor);
-                System.out.println(" listado de proveedores "+ provedores);
             }
 
         } catch (SQLException ex) {

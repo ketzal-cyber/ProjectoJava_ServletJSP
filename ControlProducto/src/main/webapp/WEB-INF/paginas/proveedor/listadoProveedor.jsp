@@ -1,17 +1,7 @@
-<%-- 
-    Document   : listadoProveedor
-    Created on : 12/01/2021, 08:07:54 PM
-    Author     : Tecnosis
---%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<ul>
+    <c:forEach var="provedor" items="${proveedor}">
+        <li>${provedor.idProveedor} ${provedor.clave} ${provedor.nombre} ${provedor.credito}</li>
+        </c:forEach>
+</ul>
