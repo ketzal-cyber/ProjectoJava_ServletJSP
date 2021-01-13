@@ -2,7 +2,7 @@
     <div class="conatiner">
         <div class="col">
             <p class="lead text-center">
-                Copyright &copy;; Javero
+                Copyright &copy;; Ángel Hdez M_jd
             </p>
         </div>
     </div>
