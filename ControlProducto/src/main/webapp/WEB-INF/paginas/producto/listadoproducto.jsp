@@ -1,8 +1,4 @@
-<%-- 
-    Document   : listadoproducto
-    Created on : 12/01/2021, 08:08:47 PM
-    Author     : Tecnosis
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

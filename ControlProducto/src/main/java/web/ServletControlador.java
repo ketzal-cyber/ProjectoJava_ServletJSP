@@ -21,12 +21,7 @@ public class ServletControlador extends HttpServlet {
         List<Object> provedores = new ProveedorDAO().listar();
         System.out.println("proveedores "+ provedores);
         request.setAttribute("proveedor", provedores);
-        
-<<<<<<< HEAD
         request.getRequestDispatcher("home.jsp").forward(request, response);
-=======
-        request.getRequestDispatcher("proveedor.jsp").forward(request, response);
->>>>>>> 4a93a8b09ed7c9f569b75dc640ff06eceac7c9b1
     }
     
     
