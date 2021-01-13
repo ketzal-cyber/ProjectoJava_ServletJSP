@@ -3,8 +3,8 @@
 */
 package web;
 
+import datos.ProductoDAO;
 import datos.ProveedorDAO;
-import dominio.Proveedor;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -19,6 +19,8 @@ public class ServletControlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         List<Object> provedores = new ProveedorDAO().listar();
+        List<Object> productos = new ProductoDAO().listar();
+        System.out.println("productos "+ productos);
         System.out.println("proveedores "+ provedores);
         request.setAttribute("proveedor", provedores);
         request.getRequestDispatcher("home.jsp").forward(request, response);
