@@ -12,7 +12,7 @@ public class ProveedorDAO implements Operaciones {
             + "FROM proveedor";
     private static final String SQL_SELECT_BY_ID = "SELECT clave, nombre, telefono, credito, email "
             + "FROM proveedor WHERE idproveedor = ?";
-    private static final String SQL_INSERT = "INSERT INTO proveedor(clave,nombre,telefonno,credito,email "
+    private static final String SQL_INSERT = "INSERT INTO proveedor(clave,nombre,telefono,credito,email) "
             + "VALUES(?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE proveedor"
             + "SET clave=?, nombre=?, telefono=?, credito=?, email=? WHERE idproveedor=?";

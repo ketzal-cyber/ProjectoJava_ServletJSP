@@ -18,7 +18,7 @@ public class ProductoDAO implements Operaciones {
             + " FROM producto";
     private static final String SQL_SELECT_BY_ID = "SELECT  nombre, codigo_barra, precio, categoria, caducidad, descripcion, id_proveedor "
             + " FROM producto WHERE idproduct = ?";
-    private static final String SQL_INSERT = "INSERT INTO producto(nombre, codigo_barra, precio, categoria, caducidad, descripcion,id_proveedor "
+    private static final String SQL_INSERT = "INSERT INTO producto(nombre, codigo_barra, precio, categoria, caducidad, descripcion,id_proveedor) "
             + " VALUES(?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE producto"
             + " SET nombre=?, codigo_barra=?, precio=?, categoria=?, caducidad=?, descripcion=?,id_proveedor=? WHERE idproduct=?";
