@@ -1,32 +1,19 @@
 
 <!DOCTYPE html>
 <html>
-    <!-- HEAD con una jsp include-->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Adminstrador productos</title>
-
+        <title>Editar Proveedor</title>
+        
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
     </head>
-
-
     <body>
-        <!-- Cabecero con una accion jsp include-->
-        <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp" />
-
-        <!-- Boton navegacion -->
-        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp" />
-
-
-        <!--Listado  -->
-        <jsp:include page="WEB-INF/paginas/proveedor/listadoProveedor.jsp" />
-        <jsp:include page="WEB-INF/paginas/producto/listadoproducto.jsp" />
-
-        <!-- footer con una accion jsp include-->
-        <jsp:include page="WEB-INF/paginas/comunes/footer.jsp" />
-
+        
+        <h2>Editr</h2>
+        
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

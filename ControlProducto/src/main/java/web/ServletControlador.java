@@ -21,7 +21,21 @@ public class ServletControlador extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        this.accionDefault(request, response);
+        String accion = request.getParameter("action");
+        if (accion != null) {
+            switch (accion) {
+                case "editar":
+                    this.editarProveedor(request, response);
+                    break;
+                case "modificar":
+                    //this.modificarCliente(request, response);
+                    break;
+                default:
+                    this.accionDefault(request, response);
+            }
+        } else {
+            this.accionDefault(request, response);
+        }
     }
     
     private void accionDefault(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -88,6 +102,16 @@ public class ServletControlador extends HttpServlet {
         
         //redirigimos a la accion por default
         this.accionDefault(request, response);
+    }
+    
+    private void editarProveedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        // recuperar id proveedor
+        int idProved = Integer.parseInt(request.getParameter("idProveedor"));
+        Proveedor provedor = (Proveedor) new ProveedorDAO().encontrar(new Proveedor(idProved));
+        System.out.println("provedor = " + provedor);
+        request.setAttribute("provedor", provedor);
+        String jspEditar = "/WEB-INF/paginas/proveedor/editarProveedor.jsp";
+        request.getRequestDispatcher(jspEditar).forward(request, response);
     }
     
     
