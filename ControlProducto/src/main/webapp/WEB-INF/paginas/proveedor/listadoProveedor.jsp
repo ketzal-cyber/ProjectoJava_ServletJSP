@@ -12,7 +12,7 @@
                     <table class="table table-striped">
                         <thead class="th-dark">
                             <tr>
-                                <th>#</th>
+                                <th>Clave</th>
                                 <th>Nombre</th>
                                 <th>Telefono</th>
                                 <th>credito</th>

@@ -23,6 +23,7 @@ public class ServletControlador extends HttpServlet {
         System.out.println("productos "+ productos);
         System.out.println("proveedores "+ provedores);
         request.setAttribute("proveedor", provedores);
+        request.setAttribute("productos", productos);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
     

@@ -20,6 +20,7 @@
         
        <!--Listado  -->
        <jsp:include page="WEB-INF/paginas/proveedor/listadoProveedor.jsp" />
+       <jsp:include page="WEB-INF/paginas/producto/listadoproducto.jsp" />
         
         <!-- footer con una accion jsp include-->
         <jsp:include page="WEB-INF/paginas/comunes/footer.jsp" />
