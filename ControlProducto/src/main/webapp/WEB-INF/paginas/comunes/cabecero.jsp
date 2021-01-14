@@ -1,5 +1,5 @@
 <!-- -->
-<header id="main-header" class="py-2 bg-info text-white">
+<header id="main-header" class="py-2 bg-info ">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
