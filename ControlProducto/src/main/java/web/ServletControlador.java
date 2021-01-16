@@ -27,6 +27,9 @@ public class ServletControlador extends HttpServlet {
                 case "editar":
                     this.editarProveedor(request, response);
                     break;
+                case "eliminar":
+                    this.eliminarProveedor(request, response);
+                    break;
                 default:
                     this.accionDefault(request, response);
             }
@@ -130,6 +133,25 @@ public class ServletControlador extends HttpServlet {
         request.setAttribute("provedor", provedor);
         String jspEditar = "/WEB-INF/paginas/proveedor/editarProveedor.jsp";
         request.getRequestDispatcher(jspEditar).forward(request, response);
+    }
+    
+    private void eliminarProveedor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        //recuperamos los valores del formulario de editar
+        int idProved = 0;
+        String idProString = request.getParameter("idProveedor");
+        if(idProString != null && !"".equals(idProString)){
+            idProved = Integer.parseInt(idProString);
+        }
+        
+        //creamos un objeto proveedor del modelo
+        Proveedor newProvedor = new Proveedor(idProved);
+        System.out.println("provedor = " + newProvedor);
+        //eliminar el nuevo objeto en la db
+        int registrosModificados = new ProveedorDAO().eliminar(newProvedor);
+        System.out.println("registrosModificados = " + registrosModificados);
+        
+        //redirigimos a la accion por default
+        this.accionDefault(request, response);
     }
     
     private int calcularCreditoTotal(List<Object> provedor){

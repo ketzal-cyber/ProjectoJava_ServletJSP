@@ -13,6 +13,7 @@ public class Conexion {
     private static final String JDBC_USER = "agentx";
     private static final String JDBC_PASSWORD = "x.A18dic";
     
+    // para no crear un objeto cada ve que se llame al getDataSource y en cada objeto estamos solicitando 30 conexiones
     private static BasicDataSource dataSource;
 
     public static DataSource getDataSource() {  
