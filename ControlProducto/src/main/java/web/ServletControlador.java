@@ -31,7 +31,7 @@ public class ServletControlador extends HttpServlet {
                     this.accionDefault(request, response);
             }
         } else {
-            System.out.println("else get = ");
+            //System.out.println("else get = ");
             this.accionDefault(request, response);
         }
     }
@@ -66,10 +66,8 @@ public class ServletControlador extends HttpServlet {
                     break;
                 default:
                     this.accionDefault(request, response);
-                    System.out.println("default post = ");
             }
         } else {
-            System.out.println("else  post= ");
             this.accionDefault(request, response);
             
         }
@@ -101,18 +99,15 @@ public class ServletControlador extends HttpServlet {
         //recuperamos los valores del formulario de editar
         int idProved = 0;
         String idProString = request.getParameter("idProveedor");
-        System.out.println("idProvedString = " + idProString);
         if(idProString != null && !"".equals(idProString)){
             idProved = Integer.parseInt(idProString);
         }
-        System.out.println("idProved = " + idProved);
         String clave = request.getParameter("clave");
         String nombre = request.getParameter("nombre");
         String email = request.getParameter("email");
         String telefono = request.getParameter("telefono");
         int credito = 0;
         String creditoString = request.getParameter("credito");
-        System.out.println("creditoString = " + creditoString);
         if (creditoString != null && !"".equals(creditoString)) {
             credito = Integer.parseInt(creditoString);
         }

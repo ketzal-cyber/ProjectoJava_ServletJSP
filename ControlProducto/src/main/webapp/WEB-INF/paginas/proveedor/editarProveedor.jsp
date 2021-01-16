@@ -23,7 +23,7 @@
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4>Editar Proveedor ${provedor.idProveedor}</h4>
+                                    <h4>Editar Proveedor ${provedor.nombre}</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">

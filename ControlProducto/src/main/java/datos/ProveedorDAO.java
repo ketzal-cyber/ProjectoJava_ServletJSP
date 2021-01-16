@@ -127,7 +127,7 @@ public class ProveedorDAO implements Operaciones {
         PreparedStatement stmt = null;
         int rows = 0;
         Proveedor proveedor = (Proveedor) object;
-        System.out.println("objeto proveedor dao "+ proveedor);
+        //System.out.println("objeto proveedor dao "+ proveedor);
         // idproveedor, clave, nombre, telefono, credito, email
         try {
             conn = Conexion.getConnection();
