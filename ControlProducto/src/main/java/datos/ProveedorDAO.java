@@ -1,5 +1,6 @@
 package datos;
 
+import static datos.Conexion.getConnection;
 import dominio.Proveedor;
 import general.Operaciones;
 import java.sql.*;
@@ -14,8 +15,8 @@ public class ProveedorDAO implements Operaciones {
             + "FROM proveedor WHERE idproveedor = ?";
     private static final String SQL_INSERT = "INSERT INTO proveedor(clave,nombre,telefono,credito,email) "
             + "VALUES(?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE proveedor"
-            + "SET clave=?, nombre=?, telefono=?, credito=?, email=? WHERE idproveedor=?";
+    private static final String SQL_UPDATE = "UPDATE proveedor "
+            + "SET clave = ?, nombre = ?, telefono = ?, credito = ?, email = ? WHERE idproveedor = ?";
     private static final String SQL_DELETE = "DELETE FROM proveedor WHERE idproveedor=?";
 
     //Metodo para  listar todos los proveedores
@@ -59,24 +60,29 @@ public class ProveedorDAO implements Operaciones {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
+        
         Proveedor provee = null;
         Proveedor proveedor = (Proveedor) object;
         // idproveedor, clave, nombre, telefono, credito, email 
         try {
-            conn = Conexion.getConnection();
+            conn = getConnection();
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID);
             stmt.setInt(1, proveedor.getIdProveedor());
             rs = stmt.executeQuery();
-            rs.absolute(1); //nos posisionamos en el primer registro
+            //rs.absolute(1); //nos posisionamos en el primer registro
+             if (rs.next()) {
+                String clave = rs.getString("clave");
+                String nombre = rs.getString("nombre");
+                String telefono = rs.getString("telefono");
+                int credito = rs.getInt("credito");
+                String email = rs.getString("email");
 
-            String clave = rs.getString("clave");
-            String nombre = rs.getString("nombre");
-            String telefono = rs.getString("telefono");
-            int credito = rs.getInt("credito");
-            String email = rs.getString("email");
-
-            provee = new Proveedor(clave, nombre, telefono, credito, email);
-
+                proveedor.setClave(clave); //= new Proveedor(clave, nombre, telefono, credito, email);
+                proveedor.setNombre(nombre);
+                proveedor.setTelefono(telefono);
+                proveedor.setCredito(credito);
+                proveedor.setEmail(email);
+             }
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);
         } finally {
@@ -84,7 +90,7 @@ public class ProveedorDAO implements Operaciones {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return provee;
+        return proveedor;
     }
 
     // 
@@ -121,6 +127,7 @@ public class ProveedorDAO implements Operaciones {
         PreparedStatement stmt = null;
         int rows = 0;
         Proveedor proveedor = (Proveedor) object;
+        System.out.println("objeto proveedor dao "+ proveedor);
         // idproveedor, clave, nombre, telefono, credito, email
         try {
             conn = Conexion.getConnection();
